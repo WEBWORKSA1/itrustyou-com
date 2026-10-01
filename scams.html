@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scam Library A–Z — Every Scam Type Explained | ITrustYou</title>
+<meta name="description" content="30 of the most common scams explained: phishing, toll texts, romance, crypto investment, tech support, job scams, AI voice cloning and more. Red flags and what to do.">
+<link rel="canonical" href="https://itrustyou.com/scams.html">
+<meta name="theme-color" content="#0b1b33">
+<meta property="og:type" content="website"><meta property="og:site_name" content="ITrustYou">
+<meta property="og:title" content="Scam Library A–Z — Every Scam Type Explained | ITrustYou"><meta property="og:description" content="30 of the most common scams explained: phishing, toll texts, romance, crypto investment, tech support, job scams, AI voice cloning and more. Red flags and what to do.">
+<meta property="og:url" content="https://itrustyou.com/scams.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js"></script>
+<script>try{var t=localStorage.getItem("iy-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+
+</head>
+<body data-page="scams">
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><a href="https://web.works/contact" target="_blank" rel="noopener">Contact, if you are interested in this website / domain name / Sponsorship / Advertisement / Partnership →</a></div>
+<header id="site-header"><noscript><nav class="container" style="padding:12px 16px"><a href="index.html">ITrustYou</a> · <a href="check.html">Check</a> · <a href="scams.html">Scams</a> · <a href="report.html">Report</a> · <a href="help.html">Get help</a> · <a href="protect.html">Protect</a> · <a href="support.html">Support</a></nav></noscript></header>
+<main id="main">
+<section class="page-hero">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a> / Scam library</div>
+    <h1>Scam Library A–Z</h1>
+    <p>How each scam works, the red flags to watch for, and exactly what to do. Search or filter by category and channel.</p>
+  </div>
+</section>
+<section style="padding-top:8px">
+  <div class="container">
+    <div class="toolbar">
+      <input id="sq" type="search" placeholder="Search scams (e.g. crypto, toll, job)…" aria-label="Search scams">
+      <select id="sc" aria-label="Category"><option value="">All categories</option></select>
+      <select id="sch" aria-label="Channel"><option value="">All channels</option></select>
+    </div>
+    <p class="muted" id="scount"></p>
+    <div id="slist"></div>
+  </div>
+</section>
+<div class="ad-slot" data-ad="inline"></div>
+<div data-include="newsletter"></div>
+<script src="assets/data/scams.js"></script>
+<script>
+(function(){
+  var S=window.SCAMS.slice().sort(function(a,b){return a.n.localeCompare(b.n)}),q=document.getElementById("sq"),c=document.getElementById("sc"),ch=document.getElementById("sch"),L=document.getElementById("slist");
+  function uniq(k){return Array.from(new Set(S.map(function(s){return s[k]}))).sort()}
+  uniq("c").forEach(function(v){c.add(new Option(v,v))});uniq("ch").forEach(function(v){ch.add(new Option(v,v))});
+  function draw(){
+    var t=q.value.toLowerCase(),list=S.filter(function(s){return (!c.value||s.c===c.value)&&(!ch.value||s.ch===ch.value)&&(!t||JSON.stringify(s).toLowerCase().indexOf(t)>-1)});
+    document.getElementById("scount").textContent=list.length+" scam types";
+    L.innerHTML=list.length?list.map(function(s){return '<details id="'+s.id+'"'+(location.hash.slice(1)===s.id?" open":"")+'><summary><span>'+s.n+' <span class="badge '+s.r+'">'+(s.r==="high"?"High risk":"Medium")+'</span> <span class="badge">'+s.ch+'</span></span></summary><div><p>'+s.s+'</p><div class="grid g2"><div><h4>🚩 Red flags</h4><ul>'+s.f.map(function(x){return"<li>"+x+"</li>"}).join("")+'</ul></div><div><h4>✅ What to do</h4><ul>'+s.d.map(function(x){return"<li>"+x+"</li>"}).join("")+'</ul></div></div><p><a href="report.html?type='+encodeURIComponent(s.n)+'">Report this scam</a> · <a href="help.html">I fell for this</a> · <a href="check.html">Check a link</a></p></div></details>'}).join(""):'<div class="empty">No matches. Try another term.</div>';
+  }
+  [q,c,ch].forEach(function(e){e.addEventListener("input",draw)});draw();
+  if(location.hash){var el=document.getElementById(location.hash.slice(1));if(el)setTimeout(function(){el.scrollIntoView({behavior:"smooth"})},100)}
+})();
+</script>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

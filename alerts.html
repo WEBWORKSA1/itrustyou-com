@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Latest Scam Alerts & Warnings | ITrustYou</title>
+<meta name="description" content="Current scam warnings: toll texts, crypto investment, AI voice cloning, fake parcels, job scams and more — by region and severity, with links to official sources.">
+<link rel="canonical" href="https://itrustyou.com/alerts.html">
+<meta name="theme-color" content="#0b1b33">
+<meta property="og:type" content="website"><meta property="og:site_name" content="ITrustYou">
+<meta property="og:title" content="Latest Scam Alerts & Warnings | ITrustYou"><meta property="og:description" content="Current scam warnings: toll texts, crypto investment, AI voice cloning, fake parcels, job scams and more — by region and severity, with links to official sources.">
+<meta property="og:url" content="https://itrustyou.com/alerts.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js"></script>
+<script>try{var t=localStorage.getItem("iy-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+
+</head>
+<body data-page="alerts">
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><a href="https://web.works/contact" target="_blank" rel="noopener">Contact, if you are interested in this website / domain name / Sponsorship / Advertisement / Partnership →</a></div>
+<header id="site-header"><noscript><nav class="container" style="padding:12px 16px"><a href="index.html">ITrustYou</a> · <a href="check.html">Check</a> · <a href="scams.html">Scams</a> · <a href="report.html">Report</a> · <a href="help.html">Get help</a> · <a href="protect.html">Protect</a> · <a href="support.html">Support</a></nav></noscript></header>
+<main id="main">
+<section class="page-hero">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a> / Scam alerts</div>
+    <h1>Scam Alerts</h1>
+    <p>Editorial advisories on scams trending now, with links to the official agencies tracking them. Get them weekly by email.</p>
+  </div>
+</section>
+<section style="padding-top:8px">
+  <div class="container">
+    <div class="toolbar">
+      <input id="aq" type="search" placeholder="Search alerts…" aria-label="Search alerts">
+      <select id="asev" aria-label="Severity"><option value="">All severities</option><option value="high">High risk</option><option value="med">Caution</option></select>
+      <select id="acat" aria-label="Category"><option value="">All categories</option></select>
+      <a class="btn btn-danger" href="report.html">+ Report a new scam</a>
+    </div>
+    <div class="grid g2" id="alist"></div>
+  </div>
+</section>
+<div class="ad-slot" data-ad="inline"></div>
+<div data-include="newsletter"></div>
+<script src="assets/data/alerts.js"></script>
+<script>
+(function(){
+  var A=window.ALERTS,q=document.getElementById("aq"),s=document.getElementById("asev"),c=document.getElementById("acat"),L=document.getElementById("alist");
+  Array.from(new Set(A.map(function(a){return a.cat}))).sort().forEach(function(v){c.add(new Option(v,v))});
+  function draw(){var t=q.value.toLowerCase();var l=A.filter(function(a){return(!s.value||a.sev===s.value)&&(!c.value||a.cat===c.value)&&(!t||JSON.stringify(a).toLowerCase().indexOf(t)>-1)});
+    L.innerHTML=l.length?l.map(function(a){return '<article class="card"><span class="badge '+a.sev+'">'+(a.sev==="high"?"High risk":"Caution")+'</span> <span class="badge">'+a.cat+'</span> <span class="badge">'+a.r+'</span><h3 class="mt-2">'+a.t+'</h3><p>'+a.b+'</p><small class="muted">'+new Date(a.d+"T12:00:00").toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"})+' · More: <a href="'+a.src[1]+'" target="_blank" rel="noopener nofollow">'+a.src[0]+' ↗</a></small></article>'}).join(""):'<div class="empty">No alerts match.</div>'}
+  [q,s,c].forEach(function(e){e.addEventListener("input",draw)});draw();
+})();
+</script>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
